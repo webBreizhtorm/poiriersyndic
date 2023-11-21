@@ -1,0 +1,32 @@
+.summary-list {
+  line-height: 1.625;
+  padding-left: 1rem;
+  margin-bottom: 0;
+  counter-reset: item;
+  list-style: none;
+  > li {
+    display: table;
+    counter-increment: item;
+    margin-bottom: 0.6em;
+    color: var(--color-primary);
+  }
+  > li:before {
+    content: counters(item, ".") ". ";
+    display: table-cell;
+    padding-right: 0.6em;
+    color: var(--color-primary);
+  }
+  li ol > li {
+    margin: 0;
+  }
+  li ol > li:before {
+    content: counters(item, ".") " ";
+    color: var(--color-primary);
+  }
+  li a {
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

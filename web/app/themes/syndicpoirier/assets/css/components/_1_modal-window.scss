@@ -1,0 +1,357 @@
+     
+
+/*The animations will be disabled if the prefers-reduced-motion option is equal to "reduce" on the user's device.
+Custom events
+
+If you need to open a modal element without a trigger element (e.g., you want to show the modal as a consequence of user actions), you can use the openModal custom event.
+
+Here's how you can use this custom event:
+
+function openModal(element) {
+  var event = new CustomEvent('openModal');
+  element.dispatchEvent(event);
+};
+
+var modal = document.getElementsByClassName('js-modal');
+//open first modal available in your page
+openModal(modal[0]);
+
+You can also pass the element you want the focus to be moved to when the modal element is closed:
+
+function openModal(element, focusElement) {
+  var event = new CustomEvent('openModal', { detail: focusElement });
+  element.dispatchEvent(event);
+};
+
+You can use the closeModal event if you need to close the modal without using a close button:
+
+function closeModal(element) {
+  var event = new CustomEvent('closeModal');
+  element.dispatchEvent(event);
+};
+
+var modal = document.getElementsByClassName('js-modal');
+//close first modal available in your page
+closeModal(modal[0]);
+
+You can listen to the opening/closing of a modal element using the two custom events modalIsOpen and modalIsClose that are emitted when the modal is open/close.
+
+var modal = document.getElementsByClassName('js-modal')[0];
+modal.addEventListener('modalIsOpen', function(event){
+  // modal is open
+  // event.detail is the element that triggered the modal opening
+});
+modal.addEventListener('modalIsClose', function(event){
+  // modal is close
+});
+
+Focus
+
+When the modal window is open, the focus is automatically moved to the first focusable element inside the modal.
+
+If you want to specify the element the focus should be moved to, you can add the data-modal-first-focus attribute to the .js-modal element and set its value equal to a unique selector of the element you want to focus. If the element is not focusable, the focus will be moved to the first focusable child.
+Overflow
+
+When the modal is open, you may want to change the overflow behavior of a different element (e.g., the body element) to prevent the underlying content from scrolling while the modal is open.
+
+To do that, add a data-modal-prevent-scroll attribute equal to a unique CSS selector of the element to modify. For example, to target the <body>:
+
+<!--  prevent the body from scrolling when the modal is open  -->
+<div class="modal" id="modal-name-1" data-modal-prevent-scroll="body">
+  <!-- modal content here -->
+</div>
+
+Dynamic Content
+
+If your modal is created dynamically, you may need to initialize it (once it has been added to the page) to make it work properly.
+
+Once the dynamic content has been added to the page, initialize it using the Modal object:
+
+var modal = document.getElementsByClassName('modal')[0];
+new Modal(modal);
+
+Categories
+Overlays
+Bug Report & Feedback
+
+Report a bug + changelog on Github ↗
+Level up your CSS skills
+
+💌 Each month we email a 1-minute CSS tutorial to 20K developers
+
+/* -------------------------------- 
+
+File#: _1_modal-window
+Title: Modal Window
+Descr: A modal dialog used to display critical information
+Usage: codyhouse.co/license
+
+-------------------------------- */
+.modal {
+  position: fixed;
+  z-index: var(--z-index-overlay, 15);
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  visibility: hidden;
+}
+.modal:not(.modal--is-visible) {
+  pointer-events: none;
+  background-color: transparent;
+}
+
+.modal--is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* close button */
+.modal__close-btn {
+  display: flex;
+  flex-shrink: 0;
+  border-radius: 50%;
+  transition: 0.2s;
+}
+.modal__close-btn .icon {
+  display: block;
+  margin: auto;
+}
+
+.modal__close-btn--outer {
+  /* close button - outside the modal__content */
+  width: 48px;
+  height: 48px;
+  position: fixed;
+  top: var(--space-sm);
+  right: var(--space-sm);
+  z-index: var(--z-index-fixed-element, 10);
+  background-color: hsla(var(--color-black-h), var(--color-black-s), var(--color-black-l), 0.9);
+  transition: 0.2s;
+}
+.modal__close-btn--outer .icon {
+  color: var(--color-white);
+  /* icon color */
+  transition: -webkit-transform 0.3s var(--ease-out-back);
+  transition: transform 0.3s var(--ease-out-back);
+  transition: transform 0.3s var(--ease-out-back), -webkit-transform 0.3s var(--ease-out-back);
+}
+.modal__close-btn--outer:hover {
+  background-color: hsla(var(--color-black-h), var(--color-black-s), var(--color-black-l), 1);
+}
+.modal__close-btn--outer:hover .icon {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.modal__close-btn--inner {
+  /* close button - inside the modal__content */
+  --size: 32px;
+  width: var(--size);
+  height: var(--size);
+  background-color: var(--color-bg-light);
+  box-shadow: var(--inner-glow), var(--shadow-sm);
+  transition: 0.2s;
+}
+.modal__close-btn--inner .icon {
+  color: inherit;
+  /* icon color */
+}
+.modal__close-btn--inner:hover {
+  background-color: var(--color-bg-lighter);
+  box-shadow: var(--inner-glow), var(--shadow-md);
+}
+
+/* animations */
+:root {
+  --modal-transition-duration: 0.2s;
+  /* fallback (i.e., unless specified differently in the variations 👇) */
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .modal--animate-fade {
+    --modal-transition-duration: 0.2s;
+    transition: opacity var(--modal-transition-duration), background-color var(--modal-transition-duration), visibility 0s var(--modal-transition-duration);
+  }
+  .modal--animate-fade.modal--is-visible {
+    transition: opacity var(--modal-transition-duration), background-color var(--modal-transition-duration), visibility 0s;
+  }
+
+  .modal--animate-scale,
+.modal--animate-translate-up,
+.modal--animate-translate-down,
+.modal--animate-translate-right,
+.modal--animate-translate-left {
+    --modal-transition-duration: .2s;
+    transition: opacity var(--modal-transition-duration), background-color var(--modal-transition-duration), visibility 0s var(--modal-transition-duration);
+  }
+  .modal--animate-scale .modal__content,
+.modal--animate-translate-up .modal__content,
+.modal--animate-translate-down .modal__content,
+.modal--animate-translate-right .modal__content,
+.modal--animate-translate-left .modal__content {
+    will-change: transform;
+    transition: -webkit-transform var(--modal-transition-duration) var(--ease-out);
+    transition: transform var(--modal-transition-duration) var(--ease-out);
+    transition: transform var(--modal-transition-duration) var(--ease-out), -webkit-transform var(--modal-transition-duration) var(--ease-out);
+  }
+  .modal--animate-scale.modal--is-visible,
+.modal--animate-translate-up.modal--is-visible,
+.modal--animate-translate-down.modal--is-visible,
+.modal--animate-translate-right.modal--is-visible,
+.modal--animate-translate-left.modal--is-visible {
+    transition: opacity var(--modal-transition-duration), background-color var(--modal-transition-duration), visibility 0s;
+  }
+  .modal--animate-scale.modal--is-visible .modal__content,
+.modal--animate-translate-up.modal--is-visible .modal__content,
+.modal--animate-translate-down.modal--is-visible .modal__content,
+.modal--animate-translate-right.modal--is-visible .modal__content,
+.modal--animate-translate-left.modal--is-visible .modal__content {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    /* reset all transformations */
+  }
+
+  .modal--animate-slide-up,
+.modal--animate-slide-down,
+.modal--animate-slide-right,
+.modal--animate-slide-left {
+    --modal-transition-duration: 0.3s;
+    transition: opacity 0s var(--modal-transition-duration), background-color var(--modal-transition-duration), visibility 0s var(--modal-transition-duration);
+  }
+  .modal--animate-slide-up .modal__content,
+.modal--animate-slide-down .modal__content,
+.modal--animate-slide-right .modal__content,
+.modal--animate-slide-left .modal__content {
+    will-change: transform;
+    transition: -webkit-transform var(--modal-transition-duration) var(--ease-out);
+    transition: transform var(--modal-transition-duration) var(--ease-out);
+    transition: transform var(--modal-transition-duration) var(--ease-out), -webkit-transform var(--modal-transition-duration) var(--ease-out);
+  }
+  .modal--animate-slide-up.modal--is-visible,
+.modal--animate-slide-down.modal--is-visible,
+.modal--animate-slide-right.modal--is-visible,
+.modal--animate-slide-left.modal--is-visible {
+    transition: background-color var(--modal-transition-duration), visibility 0s;
+  }
+  .modal--animate-slide-up.modal--is-visible .modal__content,
+.modal--animate-slide-down.modal--is-visible .modal__content,
+.modal--animate-slide-right.modal--is-visible .modal__content,
+.modal--animate-slide-left.modal--is-visible .modal__content {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    /* reset all transformations */
+  }
+
+  /* scale */
+  .modal--animate-scale .modal__content {
+    -webkit-transform: scale(0.95);
+            transform: scale(0.95);
+  }
+
+  /* translate */
+  .modal--animate-translate-up .modal__content {
+    -webkit-transform: translateY(40px);
+            transform: translateY(40px);
+  }
+
+  .modal--animate-translate-down .modal__content {
+    -webkit-transform: translateY(-40px);
+            transform: translateY(-40px);
+  }
+
+  .modal--animate-translate-right .modal__content {
+    -webkit-transform: translateX(-40px);
+            transform: translateX(-40px);
+  }
+
+  .modal--animate-translate-left .modal__content {
+    -webkit-transform: translateX(40px);
+            transform: translateX(40px);
+  }
+
+  /* slide */
+  .modal--animate-slide-up .modal__content {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+  }
+
+  .modal--animate-slide-down .modal__content {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
+
+  .modal--animate-slide-right .modal__content {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+
+  .modal--animate-slide-left .modal__content {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+}
+/* load content - optional */
+.modal--is-loading .modal__content {
+  visibility: hidden;
+}
+.modal--is-loading .modal__loader {
+  display: flex;
+}
+
+.modal__loader {
+  /* loader icon */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  pointer-events: none;
+}
+
+/* --image */
+.modal-img-btn {
+  position: relative;
+  cursor: pointer;
+}
+.modal-img-btn::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: hsla(var(--color-black-h), var(--color-black-s), var(--color-black-l), 0);
+  transition: background 0.2s;
+}
+.modal-img-btn:hover::after {
+  background-color: hsla(var(--color-black-h), var(--color-black-s), var(--color-black-l), 0.7);
+}
+.modal-img-btn:hover .modal-img-btn__icon-wrapper {
+  opacity: 1;
+}
+
+.modal-img-btn__icon-wrapper {
+  position: absolute;
+  z-index: 2;
+  top: calc(50% - 24px);
+  left: calc(50% - 24px);
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: hsla(var(--color-black-h), var(--color-black-s), var(--color-black-l), 0.7);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.modal-img-btn__icon-wrapper .icon {
+  color: var(--color-white);
+}
+

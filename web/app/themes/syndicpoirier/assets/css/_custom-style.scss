@@ -1,0 +1,320 @@
+// --------------------------------
+
+// Custom Style - your bespoke style
+
+// --------------------------------
+
+@import "custom-style/colors";
+@import "custom-style/headlink";
+@import "custom-style/spacing";
+@import "custom-style/shared-styles";
+@import "custom-style/typography";
+@import "custom-style/icons";
+@import "custom-style/buttons";
+@import "custom-style/forms";
+@import "custom-style/util";
+@import "custom-style/contact-form";
+
+.page {
+  max-width: 100Vw;
+  overflow-x: hidden;
+}
+
+footer {
+  position: relative;
+  padding-top: var(--space-xl);
+  padding-bottom: var(--space-xxxl);
+  z-index: 1;
+  overflow: hidden;
+}
+
+.footer-bg {
+  position: absolute;
+  top: var(--space-lg);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  margin: 0 auto;
+  height: 100%;
+  background: var(--color-accent) url("../img/illu-footer.svg") 0 100% no-repeat;
+  background-blend-mode: multiply;
+  background-size: 100%;
+  /* background-attachment: fixed; */
+  opacity: 0.5;
+  z-index: -1;
+}
+
+.footer-icon-link {
+  .footer-icon {
+    color: var(--color-contrast-high); // icon color
+    transition: all 0.2s;
+
+    &:hover {
+      color: var(--color-white);
+      box-shadow: var(--shadow-md);
+      background-color: var(--color-primary);
+      transform: rotateZ(-26deg);
+    }
+  }
+}
+
+@include breakpoint(md) {
+
+  .f-header .btns {
+    max-width: 250px;
+    padding: 0;
+    margin-top: -12px;
+  }
+  
+  .footer-bg {
+    top: var(--space-xxl);
+  }
+
+}
+
+@include breakpoint(lg) {
+
+  .f-header .btns {
+    max-width: none;
+  }
+
+}
+
+//PAGE HOME
+#home-hero {
+  background-position: 80% 100% !important;
+  // background-size:50% 50%;
+  // background-attachment:fixed!important;
+  background-repeat: no-repeat !important;
+  height: 820px;
+  h1 {
+    font-size: var(--text-xl);
+    line-height: 1.1;
+    margin-top: var(--space-xl);
+    text-transform: uppercase;
+
+    @include breakpoint(md) {
+      font-size: var(--text-xxxxl) !important;
+      margin-top: var(--space-md) !important;
+    }
+  }
+}
+ul.svg-list {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+
+  li {
+    padding-right: 4%;
+    font-weight: 600;
+    margin-top: 1em;
+    font-size: 0.85em;
+
+    &:before {
+      content: "";
+      display: inline-block;
+      height: 1em;
+      width: 1em;
+      // background-image: url(http://placehold.it/32?text=fallback); // Fallback PNG
+      background-image: url(../img/bullet.svg);
+      background-size: contain;
+      background-repeat: no-repeat;
+      margin-right: 0.5em;
+    }
+    @include breakpoint(md) {
+      font-size: var(--text-lg);
+    }
+  }
+}
+
+#home-intro {
+  background-attachment: fixed !important;
+  .intro-img {
+    width: 200%;
+    mix-blend-mode: multiply;
+  }
+  .section-divider {
+    bottom: -2px;
+  }
+}
+#offres {
+  background: #3665b0 url("../img/illus-maison-arbre.svg") bottom 0 center
+    no-repeat;
+  background-size: 75%;
+}
+
+.accordion ul {
+  list-style: none !important;
+}
+
+.home-faq {
+  // @include breakpoint(md) {
+  //     background:var(--color-bg) url("../img/poirier-syndic-laptop.svg") left 10% bottom -1% no-repeat;
+  // }
+  overflow: hidden;
+  figure {
+    bottom: -1.5em;
+  }
+  .home-faq-block {
+    position: relative;
+    background-color: #e0f0fc;
+    border-radius: 40px;
+
+    .home-faq-block-vignette {
+      position: absolute;
+      top: -35px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    &:before {
+      content: "";
+      width: 0px;
+      height: 0px;
+      position: absolute;
+      border-left: 24px solid #e0f0fc;
+      border-right: 12px solid transparent;
+      border-top: 12px solid #e0f0fc;
+      border-bottom: 20px solid transparent;
+      left: 48px;
+      bottom: -24px;
+    }
+    ol,
+    p {
+      text-align: left;
+    }
+  }
+}
+
+/*** PLACEHOLDER STYLING ***/
+input::-webkit-input-placeholder.form-control {
+  opacity: 1;
+  // color: var(--color-contrast-medium);
+  color: red;
+}
+input:-moz-placeholder,
+input::-moz-placeholder,
+input:-ms-input-placeholder {
+  opacity: 1;
+  color: var(--color-contrast-medium);
+}
+textarea::-webkit-input-placeholder,
+textarea:-moz-placeholder,
+textarea::-moz-placeholder,
+textarea:-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+/*** TEXTAREA TRANSITION ***/
+.caldera-grid textarea.form-control {
+  height: 10em !important;
+  transition: height 0.3s ease-out;
+}
+/*** TEXTAREA FOCUS HEIGHT ***/
+.caldera-grid textarea.form-control:focus {
+  min-height: 25em;
+}
+/*** APPLIES SHADOW TO FIELD SELECTED ***/
+.caldera-grid .form-control:focus {
+  box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.3);
+}
+
+// page syndic
+#syndic-intro .container .grid aside {
+  min-height: 40vh;
+  background-position: bottom 0 left 0;
+  top: 0;
+  right: 0;
+  background-repeat: no-repeat;
+}
+#syndic-hero {
+  background-position: 100% 100% !important;
+  background-repeat: no-repeat !important;
+  height: auto;
+  background-size: cover !important;
+}
+.gabarit-titre {
+  background: transparent url("../img/gabarit-titre.svg") center center
+    no-repeat;
+  background-size: cover;
+  max-width: fit-content;
+  .page-title {
+    font-family: var(--font-secondary);
+    font-size: var(--text-xl);
+    text-transform: uppercase;
+    line-height: 1.1 !important;
+    @include breakpoint(md) {
+      font-size: var(--text-xxxxl);
+    }
+  }
+}
+section#cta-projet,
+section#cta-faq {
+  background: transparent url("../img/vue-aeriennes.jpg") 0 0 no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.bloc-cta {
+  background: transparent url("../img/bloc-cta.svg") 50% 50% no-repeat;
+  background-size: cover;
+}
+.offre {
+  &:last-of-type {
+    padding-bottom: var(--space-xxl);
+  }
+}
+
+//page prestations
+
+#prestations-syndic {
+  background: #f8e4aa url("../img/maisons-bottom.svg") bottom center no-repeat;
+  background-size: contain;
+}
+#presta-hero {
+  background-position: 100% 100% !important;
+  background-repeat: no-repeat !important;
+  height: auto;
+  background-size: cover !important;
+  .gabarit-titre {
+    max-width: 48em;
+  }
+}
+
+//page changer de syndic
+#changer-syndic-hero {
+  background-position: 100% 50% !important;
+  background-repeat: no-repeat !important;
+  height: auto;
+  background-size: cover !important;
+}
+ul.liste-raisons {
+  list-style: none;
+}
+
+//page définition
+
+.mission img {
+  max-height: 176px;
+}
+
+//page FAQ
+
+.accordion-v2__item {
+  border-radius: var(--space-sm);
+  margin-bottom: var(--space-xs) !important;
+  @include breakpoint(md) {
+    border-radius: var(--space-xl);
+  }
+
+  img {
+    display: flex;
+    flex-basis: 64px;
+    padding: 0 var(--space-md) 0 0;
+    margin: 0;
+  }
+  .icon {
+    margin-right: var(--space-md);
+  }
+}
+.accordion-v2__panel {
+  border-bottom-left-radius: var(--space-sm);
+  border-bottom-right-radius: var(--space-sm);
+}

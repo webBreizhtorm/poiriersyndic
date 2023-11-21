@@ -1,0 +1,65 @@
+.headlink {
+  text-decoration: none;
+  align-self: center;
+}
+
+.headlink--btn {
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #FFF;
+  border-radius: 5px;
+  padding: 5px 10px;
+  border-radius: 0.25em!important;
+  box-shadow: var(--shadow-xs);
+  transition: background-color .3s ease-in-out, color .3s ease-in-out;
+  &:hover {
+    box-shadow: var(--shadow-sm);
+  }
+}
+
+.headlink--1 {
+  border: 3px solid var(--color-primary);
+  background-color: var(--color-primary);
+  &:hover {
+    color: var(--color-primary);
+    background-color: #FFF;
+  }
+}
+
+.headlink--2 {
+  border: 3px solid var(--color-accent);
+  background-color: var(--color-accent);
+  &:hover {
+    color: var(--color-accent);
+    background-color: #FFF;
+  }
+}
+
+.headlink--3 {
+  border: 3px solid #10488e;
+  background-color: #10488e;
+  &:hover {
+    color: #10488e;
+    background-color: #FFF;
+  }
+}
+
+@include breakpoint(md) {
+
+  .headlink {
+    font-size: 12px;
+    line-height: 12px;
+    margin: 3px 5px;
+  }
+
+}
+
+@include breakpoint(lg) {
+
+  .headlink {
+    font-size: 14px;
+    line-height: 14px;
+    margin: 0 5px;
+  }
+
+}

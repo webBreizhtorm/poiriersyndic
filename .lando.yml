@@ -1,0 +1,16 @@
+name: poirier-syndic
+recipe: wordpress
+config:
+  php: '7.4'
+  via: nginx
+  webroot: web
+  database: mariadb
+  xdebug: true
+services:
+  phpmyadmin:
+    type: phpmyadmin
+    hosts:
+      - database
+proxy:
+  phpmyadmin:
+    - phpmyadmin.poirier-syndic.lndo.site

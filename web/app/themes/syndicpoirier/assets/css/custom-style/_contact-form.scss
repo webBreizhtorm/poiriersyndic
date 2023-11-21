@@ -1,0 +1,125 @@
+/* CONTACT FORM 7 */
+
+/*** MAIN FORM CONTAINER ***/
+
+.page-template-page-contact .wpcf7-form label {
+  margin-left: 15px;
+  font-weight: 700;
+}
+
+.wpcf7-form {
+  background: transparent;
+  padding: 30px 25px 15px 25px;
+  border-radius: 4px;
+  p {
+    margin-bottom: 15px;
+  }
+  br {
+    display: none;
+  }
+}
+/*** FIELD STYLING ***/
+body {
+  .wpcf7-text,
+  .wpcf7-textarea {
+    width: 100%;
+    height: 50px;
+    padding: 6px 12px;
+    background-color: #FFF;
+    border: 1px solid #ccc;
+    transition: all .3s ease-in-out;
+    border-radius: var(--form-control-radius);
+    padding: var(--space-xs) var(--space-md);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    font-size: 13px;
+    line-height: 1.3;
+    display: block;
+    margin-top: 5px;
+    font-weight: initial;
+    &::placeholder {
+      color: #555;
+    }
+    &:focus {
+      background-color: var(--color-accent);
+      color: var(--color-white);
+      border-color: var(--color-primary);
+      box-shadow: 0px 0px 0px 2px alpha(var(--color-primary), 0.2);
+      outline: none;
+      &::placeholder {
+        color: #FFF;
+      }
+    }
+  }
+}
+
+body .wpcf7-textarea {
+  min-height: 10em;
+}
+
+body .wpcf7-tel {
+  width: 210px;
+}
+
+/*** BUTTON STYLING ***/
+body .wpcf7-submit {
+  background: var(--color-primary);
+  color: var(--color-white);
+  border-radius: 1.618em;
+  cursor: pointer;
+  border: 3px solid var(--color-primary);
+  font-family: var(--font-primary);
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  padding-top: var(--btn-padding-y, 0.5em);
+  padding-bottom: var(--btn-padding-y, 0.5em);
+  padding-left: var(--btn-padding-x, 0.75em);
+  padding-right: var(--btn-padding-x, 0.75em);
+  /*** BUTTON HOVER STYLING ***/
+  &:hover {
+    background-color: var(--color-white);
+    color: var(--color-primary);
+    border: 3px solid var(--color-primary);
+    @include fontSmooth;
+    transition: background-color 0.3s var(--ease-in-out);
+  }
+}
+
+body .wpcf7-checkbox {
+  .wpcf7-list-item.first {
+    display: flex;
+    align-items: flex-start;
+  }
+  .wpcf7-list-item-label {
+    font-weight: bold;
+    // font-size: 13px;
+    color: var(--color-contrast-higher, #1c1c21);
+    a {
+      text-decoration: none;
+      &:hover {
+        color: #2a6496;
+      }
+    }
+    sup {
+      color: red;
+    }
+  }
+  input[type=checkbox] {
+    -webkit-appearance: auto;
+    appearance: auto;
+    opacity: 1;
+    margin-top: 3px;
+    margin-right: 8px;
+  }
+}
+
+@include breakpoint(md) {
+
+  body .wpcf7-checkbox {
+    .wpcf7-list-item-label {
+      font-size: 13px;
+    }
+  }
+
+}

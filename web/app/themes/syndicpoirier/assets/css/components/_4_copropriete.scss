@@ -1,0 +1,121 @@
+.copropriete {
+  padding: 40px 0;
+  &--right {
+    background-color: #f5f5f5;
+  }
+}
+
+.copropriete__title {
+  color: var(--color-accent);
+  margin-bottom: 40px!important;
+  margin-top: 0!important;
+}
+
+.copropriete__text {
+  .liste-raisons {
+    padding-top: 0;
+    margin: 10px 0 40px 0;
+    font-weight: bold;
+    color: var(--color-accent);
+    font-style: italic;
+  }
+}
+
+.copropriete__cartouche {
+  text-align: center;
+  margin: 20px 0;
+  h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+.copropriete__info {
+  font-weight: bold;
+  padding-top: 8px;
+  p {
+    line-height: 22px;
+  }
+}
+
+.copropriete__stars {
+  max-width: 150px;
+  margin: 0!important;
+}
+
+.copropriete__testimony {
+  display: inline-block;
+  border-radius: 20px;
+  padding: 20px;
+  background-color: #e3effb;
+}
+
+.copropriete__testimony__name {
+  margin-bottom: 0!important;
+}
+
+@include breakpoint(sm) {
+
+  .copropriete {
+    &--right {
+      .copropriete__figure {
+        order: 1;
+      }
+      .copropriete__text {
+        padding-left: 0;
+        padding-right: 80px;
+      }
+    }
+  }
+
+  .copropriete {
+    padding: 80px 0;
+  }
+
+  .copropriete__content {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .copropriete__cartouche {
+    display: flex;
+    text-align: initial;
+    margin: 0;
+    h3 {
+      margin-right: 40px;
+      margin-bottom: 8px;
+    }
+  }
+
+  .copropriete__title {
+    width: 100%;
+    margin-bottom: 60px!important;
+  }
+
+  .copropriete__figure {
+    width: 40%;
+  }
+
+  .copropriete__text {
+    width: 60%;
+    padding-left: 40px;
+    .liste-raisons {
+      font-size: 17px;
+      svg {
+        margin-top: 6px;
+      }
+    }
+  }
+
+}
+
+@include breakpoint(md) {
+
+  .copropriete__text {
+    padding-left: 80px;
+    .liste-raisons {
+      font-size: 20px;
+    }
+  }
+
+}

@@ -1,0 +1,235 @@
+// --------------------------------
+
+// Custom Style - your bespoke style
+
+// --------------------------------
+
+@import 'custom-style/colors';
+@import 'custom-style/spacing';
+@import 'custom-style/shared-styles';
+@import 'custom-style/typography';
+@import 'custom-style/icons';
+@import 'custom-style/buttons';
+@import 'custom-style/forms';
+@import 'custom-style/util';
+
+footer{
+    padding-top: var(--space-xl);
+    padding-bottom: var(--space-xxxl);
+    background:transparent url('../img/illu-footer.svg') center bottom -125% no-repeat;
+    background-blend-mode: lighten;
+    
+
+}
+//PAGE HOME
+#home-hero{
+    background-position: 80% 100%!important;
+    // background-size:50% 50%;
+    // background-attachment:fixed!important;
+    background-repeat: no-repeat!important;
+    height:664px;
+}
+#home-intro{
+    background-attachment: fixed!important;
+}
+.accordion ul{list-style:none !important;}
+ul.svg-list{
+    list-style:none;    
+    display:flex;
+    flex-direction:row;
+
+    li{
+        padding-left: 1em;
+
+        &:before{
+            content: '';
+            display: inline-block;
+            height: 1em;
+            width: 1em;
+            // background-image: url(http://placehold.it/32?text=fallback); // Fallback PNG
+            background-image: url(../img/bullet.svg);
+            background-size: contain;
+            background-repeat: no-repeat;
+            margin-right:0.5em;  
+        }
+    }
+}
+
+.home-faq{
+    // @include breakpoint(md) {
+    //     background:var(--color-bg) url("../img/poirier-syndic-laptop.svg") left 10% bottom -1% no-repeat;
+    // }
+
+    .home-faq-block{
+        position:relative;
+        .home-faq-block-vignette{
+            position:absolute;
+            top:-35px;
+            left:50%;
+            transform:translateX(-50%)
+
+        }
+    
+
+    &:before {
+            content: "";
+            width: 0px;
+            height: 0px;
+            position: absolute;
+            border-left: 24px solid var(--color-accent-lighter);
+            border-right: 12px solid transparent;
+            border-top: 12px solid var(--color-accent-lighter);
+            border-bottom: 20px solid transparent;
+            left: 32px;
+            bottom: -24px;
+          }
+    ol, p{
+        text-align: left; 
+    }
+          
+
+    }
+    
+}
+
+// Formulaire Caldera
+/**
+* Source: https://calderaforms.com/2017/04/giving-caldera-forms-material-design-look/
+**/
+
+/*** MAIN FORM CONTAINER ***/
+.caldera-grid {
+    background: transparent;
+    padding: 30px 25px 15px 25px;
+    //box-shadow: 0 10px 40px 0 rgba(0, 0, 0, .1);
+    border-radius: 4px;
+}
+/*** FIELD STYLING ***/
+.caldera-grid .form-control {
+    background-color: var(--color-contrast-lower);
+    line-height: 1.2;
+    transition: all 0.2s ease;
+    border-radius:var(--form-control-radius)!important;
+    padding:var(--space-xs) var(--space-md);
+    &::placeholder {
+        opacity: 1;  
+        color: var(--color-contrast-medium);
+      }
+    &:focus {
+        background-color: var(--color-accent);
+        color: var(--color-white);
+        border-color: var(--color-primary);
+        box-shadow: 0px 0px 0px 2px alpha(var(--color-primary), 0.2);
+        outline: none;
+    }
+}
+.caldera-grid label{
+    font-size: var(--text-xs);
+}
+/*** BUTTON STYLING ***/
+.caldera-grid input[type=submit] {
+    background: var(--color-primary);
+    color: var(--color-white);
+    border-radius: 1.618em;
+    cursor: pointer;
+    border: 3px solid var(--color-primary);
+    font-family: var(--font-primary);
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+/*** BUTTON HOVER STYLING ***/  
+        &:hover {
+        background: var(--color-white);
+        color: var(--color-primary);
+        border: 3px solid var(--color-primary);
+        @include fontSmooth;
+        transition: background 0.3s var(--ease-in-out);
+    }
+}
+/*** PLACEHOLDER STYLING ***/
+input::-webkit-input-placeholder {
+    opacity: 1;  
+    color: var(--color-contrast-medium);
+}
+input:-moz-placeholder {
+    opacity: 1;  
+    color: var(--color-contrast-medium);
+}
+input::-moz-placeholder {
+    opacity: 1;  
+    color: var(--color-contrast-medium);
+}
+input:-ms-input-placeholder {
+    opacity: 1;  
+    color: var(--color-contrast-medium);
+}
+textarea::-webkit-input-placeholder {
+    color: rgba(255, 255, 255, 0.7)!important;
+}
+textarea:-moz-placeholder {
+    color: rgba(255, 255, 255, 0.7)!important;
+}
+textarea::-moz-placeholder {
+    color: rgba(255, 255, 255, 0.7)!important;
+}
+textarea:-ms-input-placeholder {
+    color: rgba(255, 255, 255, 0.7)!important;
+}
+/*** TEXTAREA TRANSITION ***/
+.caldera-grid textarea.form-control {
+    height: 10em;
+    transition: height .3s ease-out;
+}
+/*** TEXTAREA FOCUS HEIGHT ***/
+.caldera-grid textarea.form-control:focus {
+    height: 25em;
+}
+/*** APPLIES SHADOW TO FIELD SELECTED ***/
+.caldera-grid .form-control:focus {
+    box-shadow: 0 10px 40px 0 rgba(0, 0, 0, .3);
+}
+
+// page syndic
+#syndic-hero{
+    background-attachment: fixed!important;
+}
+.gabarit-titre{
+    background:transparent url('../img/gabarit-titre.svg') center center no-repeat;
+    h2{
+        padding-bottom:.5em;
+    }
+
+}
+section#cta-projet, section#cta-faq{
+    background: transparent url('../img/vue-aeriennes.jpg') 0 0 no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    
+    .bloc-cta{
+        background: transparent url(../img/bloc-cta.svg) 50% 50% no-repeat;
+        background-size:90%;
+        @include breakpoint(md) {
+            background-size: 150%;
+        }
+    }
+}
+
+
+//page prestations
+
+#prestations-syndic{
+    background: #f8e4aa url('../img/maisons-bottom.svg') bottom center no-repeat;
+    background-size: contain;
+}
+
+//page changer de syndic
+
+ul.liste-raisons{
+    list-style: none;
+}
+
+//page définition
+
+.mission img{
+    max-height:176px;
+}

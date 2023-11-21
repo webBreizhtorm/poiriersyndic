@@ -1,0 +1,48 @@
+.shadow-page {
+  background-color: #FFF;
+  i {
+    font-style: italic;
+  }
+  figure {
+    margin-bottom: 20px;
+  }
+  img {
+    max-width: 100%;
+    margin: 0;
+  }
+  h5 {
+    text-transform: uppercase;
+    font-family: var(--font-secondary);
+    font-weight: 400;
+    color: var(--color-primary);
+  }
+}
+
+.shadow-page__inner {
+  margin-bottom: 20px;
+}
+
+.shadow-page__figure {
+  strong {
+    display: block;
+    margin: 0 auto;
+    text-align:center;
+  }
+  img {
+    margin: 0 auto 20px auto;
+  }
+  figcaption {
+    font-size: 16px;
+    line-height: 22px;
+    color: var(--color-contrast-high, #313135);
+  }
+}
+
+@include breakpoint(md) {
+
+  .shadow-page__inner {
+    margin-bottom: 40px;
+    padding-left: 50px;
+  }
+  
+}
