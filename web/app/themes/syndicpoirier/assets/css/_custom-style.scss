@@ -318,3 +318,8 @@ ul.liste-raisons {
   border-bottom-left-radius: var(--space-sm);
   border-bottom-right-radius: var(--space-sm);
 }
+
+// ReCAPTCHA
+.grecaptcha-badge {
+  z-index: 2!important;
+}
