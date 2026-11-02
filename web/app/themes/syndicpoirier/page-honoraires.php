@@ -9,7 +9,7 @@ get_header(); ?>
             <?php $url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );?>
             <section id="syndic-hero" class="width-100% padding-y-xxl bg-cover" style="background: transparent url('<?php echo $url;?>') top 50% left 33% no-repeat;">
                 <div class="container max-width-adaptive-lg gabarit-titre">
-                        <h1 class="page-title color-white text-center line-height-1 padding-x-md padding-y-sm" >Les honoraires<br class="display@md"> du syndic en <?php echo date('Y'); ?></h1>
+                        <h1 class="page-title color-white text-center line-height-1 padding-x-md padding-y-sm" >Les honoraires<br class="display@md"> du syndic</h1>
                 </div> 
             </section>
             <section id="syndic-intro">

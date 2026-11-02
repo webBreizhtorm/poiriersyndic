@@ -135,7 +135,13 @@
                     <a href="https://poiriersyndic.monespaceclient.immo/" class="headlink headlink--btn headlink--2" target="_blank">Extranet client</a>
                     <a href="https://appli.poiriersyndic.fr/" class="headlink headlink--btn headlink--3" target="_blank">appli Poirier Syndic</a>
                 </div>
-            <?php //get_search_form(); ?>
+                <?php //get_search_form(); ?>
+
+            </div>
+
+            <div class="f-header__bottom gap-lg padding-y-md">
+                <a href="mailto:compta@poiriersyndic.fr" class="headlink headlink--btn headlink--2" target="_blank">Contacter la comptabilité</a>
+                <a href="https://poiriersyndic.fr/contacter-mon-gestionnaire/" class="headlink headlink--btn headlink--3">Contacter mon gestionnaire</a>
             </div>
  
         </div>

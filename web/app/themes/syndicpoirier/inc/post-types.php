@@ -65,7 +65,29 @@ function fr3_register_post_types() {
         'menu_icon' => 'dashicons-admin-customizer',
     );    
 
-    register_post_type( 'portfolio', $args );
+    //register_post_type( 'portfolio', $args );
+
+    // CPT Gestionnaire
+    $gestlabels = array(
+        'name' => 'gestionnaire',
+        'all_items' => 'Tous les gestionnaires',  // affiché dans le sous menu
+        'singular_name' => 'Gestionnaire',
+        'add_new_item' => 'Ajouter un gestionnaire',
+        'edit_item' => 'Modifier le gestionnaire',
+        'menu_name' => 'Gestionnaires'
+    );
+
+	$gestargs = array(
+        'labels' => $gestlabels,
+        'public' => true,
+        'show_in_rest' => false,
+        'has_archive' => false,
+        'supports' => array( 'title', 'editor' ),
+        'menu_position' => 5, 
+        'menu_icon' => 'dashicons-building',
+    );    
+
+    register_post_type( 'gestionnaire', $gestargs );
 
     // Déclaration de la Taxonomie
     $labels = array(// https://developer.wordpress.org/reference/functions/get_taxonomy_labels/
@@ -81,7 +103,7 @@ function fr3_register_post_types() {
         'hierarchical' => true, 
     );
     // Assigner à un CPT
-    register_taxonomy( 'type-projet', 'portfolio', $args );
+    //register_taxonomy( 'type-projet', 'portfolio', $args );
     // Assigner à plusieurs CPT
     // register_taxonomy( 'type-projet', array( 'portfolio', 'autre' ), $args );
 }

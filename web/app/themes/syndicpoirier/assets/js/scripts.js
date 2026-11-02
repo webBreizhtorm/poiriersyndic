@@ -3210,7 +3210,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
       if(triggerMobile && triggerMobile.getAttribute('aria-expanded') == "true") return;
       // check if main nav has one of the following classes
       if( mainNav.length > 0 && (!navOpenClasses || !checkNavExpanded())) {
-        setTranslate(mainNav[0], '-100%'); 
+        setTranslate(mainNav[0], '-150%'); 
         mainNav[0].addEventListener('transitionend', addOffCanvasClass);
       }
       if( subNav.length  > 0 ) setTranslate(subNav[0], '-'+headerHeight+'px');

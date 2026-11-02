@@ -4,6 +4,21 @@
 // GENERAL
 //======================================================================
 
+// Custom search form
+function custom_search_form( $form, $value = "Search", $post_type = 'gestionnaire' ) {
+    $form_value = (isset($value)) ? $value : esc_attr(apply_filters('the_search_query', get_search_query()));
+    $form = '<form method="get" id="searchform" class="search-input search-input--icon-right" action="' . get_option('home') . '/" >
+    <div>
+        <input type="hidden" name="post_type" value="'.$post_type.'" />
+        <input type="text" class="search-input__input form-control" value="' . $form_value . '" name="s" id="s" />
+        <button class="search-input__btn" type="submit">
+            <svg class="icon" viewBox="0 0 24 24"><title>Submit</title><g stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" stroke="currentColor" fill="none" stroke-miterlimit="10"><line x1="22" y1="22" x2="15.656" y2="15.656"></line><circle cx="10" cy="10" r="8"></circle></g></svg>
+        </button>
+    </div>
+    </form>';
+    return $form;
+}
+
 //-----------------------------------------------------
 // IMAGES
 //-----------------------------------------------------

@@ -1,0 +1,15 @@
+.f-header__bottom {
+    background-color: #e3effb;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px 30px;
+}
+
+@include breakpoint(md) {
+
+    .f-header__bottom {
+        flex-direction: row;
+    }
+
+}

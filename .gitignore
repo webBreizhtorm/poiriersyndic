@@ -28,3 +28,9 @@ web/.htaccess
 
 # WP-CLI
 wp-cli.local.yml
+
+# Languages
+web/app/languages/*
+
+# MacOS remove .DS_Store
+.DS_Store
